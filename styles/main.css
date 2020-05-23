@@ -1,0 +1,15 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+body {
+  @apply bg-cr-purple-dark text-white;
+}
+
+svg {
+  fill: white;
+}
+
+svg:hover {
+  fill: #faff00;
+}
