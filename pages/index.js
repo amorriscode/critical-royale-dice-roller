@@ -156,7 +156,7 @@ export default function Home() {
           </div>
 
           <div className="flex flex-col items-center">
-            <div className="relative z-10 w-full flex flex-col items-center">
+            <div className="relative z-20 w-full flex flex-col items-center">
               <form className="w-full px-5 md:px-20" onSubmit={(e) => {
                 e.preventDefault();
                 rollDice(e.target[0].value);
@@ -188,34 +188,36 @@ export default function Home() {
             </div>
 
             <div className="-mt-10 w-full text-cr-blue">
-              <div className="w-full pt-20 pb-10 flex flex-col justify-center items-center bg-white rounded-lg relative">
+              <div className="w-full pt-20 pb-10 flex flex-col justify-center items-center bg-white rounded-lg relative h-64">
                 {
                   isRolling && (
-                    <div className="absolute top-0 bottom-0 left-0 right-0 flex justify-center items-center text-6xl bg-white rounded-lg">
+                    <div className="z-10 absolute top-0 bottom-0 left-0 right-0 flex justify-center items-center text-6xl bg-white rounded-lg">
                       Rolling...
                     </div>
                   )
                 }
 
-                {
-                  result 
-                  ? (
-                    <>
-                      <div className="text-6xl font-bold">
-                        {result}
+                <div className="absolute top-0 bottom-0 left-0 right-0 flex flex-col justify-center items-center text-6xl bg-white rounded-lg">
+                  {
+                    result 
+                    ? (
+                      <>
+                        <div className="text-6xl font-bold">
+                          {result}
+                        </div>
+            
+                        <div className="text-lg">
+                          {explanation}
+                        </div>
+                      </>
+                    )
+                    : (
+                      <div className="text-5xl text-gray-400">
+                        Only the dice can decide your fate!
                       </div>
-          
-                      <div className="text-lg">
-                        {explanation}
-                      </div>
-                    </>
-                  )
-                  : (
-                    <div className="text-5xl text-gray-400">
-                      Only the dice can decide your fate!
-                    </div>
-                  )
-                }
+                    )
+                  }
+                </div>
               </div>
             </div>
 
