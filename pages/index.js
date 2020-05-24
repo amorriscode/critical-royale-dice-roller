@@ -85,11 +85,14 @@ export default function Home() {
       </Head>
 
       <main className="flex flex-col justify-center items-center">
-        <div className="w-full z-20 sticky -mt-5 md:-mt-10 mb-4 rounded-bl-lg rounded-br-lg top-0 bg-cr-yellow text-cr-blue text-center font-bold py-1">
-          <a href="https://criticalroyale.com" target="_blank" rel="noopener noreferrer">
+          <a
+            className="w-full z-20 sticky -mt-5 md:-mt-10 mb-4 rounded-bl-lg rounded-br-lg hover:bg-cr-blue hover:text-white top-0 bg-cr-yellow text-cr-blue text-center font-bold py-1"
+            href="https://criticalroyale.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             Looks like you need some real dice! <span className="underline">Get 10% off with the code LETSROLL10 at CriticalRoyale.com</span>
           </a>
-        </div>
 
         <img src="/logo-white-yellow-icon.svg" alt="Critical Royale Logo Icon" className="w-56" />
 
@@ -101,7 +104,7 @@ export default function Home() {
           Click to roll a die or enter a formula into the formula input
         </div>
 
-        <section className="md:mt-10 space-y-3 md:space-y-6 w-full">
+        <section className=" w-full">
           <div className="md:w-3/5 mx-auto flex space-x-4">
             <D4
               width="180"
