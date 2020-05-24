@@ -75,7 +75,7 @@ export default function Home() {
   }
 
   return (
-    <div className="container p-10 flex flex-col justify-between space-y-10">
+    <div className="container p-5 sm:p-10 flex flex-col justify-between space-y-10 mx-auto">
       <Head>
         <title>Critical Royale Dice Roller</title>
         <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
@@ -87,7 +87,7 @@ export default function Home() {
       <main className="flex flex-col justify-center items-center">
         <img src="/logo-white-yellow-icon.svg" alt="Critical Royale Logo Icon" className="w-56" />
 
-        <h1 className="text-5xl font-serif">
+        <h1 className="text-4xl sm:text-5xl font-serif">
           Choose your weapon!
         </h1>
 
@@ -95,8 +95,8 @@ export default function Home() {
           Click to roll a die or enter a formula into the formula input
         </div>
 
-        <section className="mt-10 space-y-6">
-          <div className="flex space-x-4 w-3/5 mx-auto dice">
+        <section className="md:mt-10 space-y-3 md:space-y-6 w-full">
+          <div className="md:w-3/5 mx-auto flex space-x-4">
             <D4
               width="180"
               height="180"
@@ -148,32 +148,34 @@ export default function Home() {
 
           <div className="flex flex-col items-center">
             <div className="relative z-10 w-full flex flex-col items-center">
-              <form className="w-4/5" onSubmit={(e) => {
+              <form className="w-full px-5 md:px-20" onSubmit={(e) => {
                 e.preventDefault();
                 rollDice(e.target[0].value);
               }}>
                 <input
                   value={value}
                   onChange={(e) => setValue(e.target.value)}
-                  className="shadow-xl px-4 py-3 w-5/6 text-cr-blue text-3xl rounded-lg rounded-tr-none rounded-br-none focus:outline-none border-4 border-transparent focus:border-cr-yellow"
-                  placeholder="Enter a formula to roll your dice"
+                  className="shadow-xl px-4 py-3 w-2/3 md:w-5/6 text-cr-blue text-xl md:text-3xl rounded-lg rounded-tr-none rounded-br-none focus:outline-none border-4 border-transparent focus:border-cr-yellow"
+                  placeholder="Enter dice roll formula"
                 />
 
                 <button
                   type="submit"
-                  className="focus:outline-none hover:cursor-pointer hover:bg-cr-yellow hover:border-cr-yellow hover:text-cr-blue font-bold w-1/6 px-4 py-3 text-3xl bg-cr-blue border-4 border-cr-blue rounded-lg rounded-tl-none rounded-bl-none text-white"
+                  className="focus:outline-none hover:cursor-pointer hover:bg-cr-yellow hover:border-cr-yellow hover:text-cr-blue font-bold w-1/3 md:w-1/6 px-4 py-3 text-xl md:text-3xl bg-cr-blue border-4 border-cr-blue rounded-lg rounded-tl-none rounded-bl-none text-white"
                 >
                   Roll
                 </button>
-              </form>
 
-              {
-                error && !isRolling && (
-                  <div className="w-4/5 bg-red-600 rounded-tl-lg rounded-tr-lg py-1 uppercase text-xs font-bold absolute -mt-5 top-0 flex justify-center items-center">
-                    {error}
-                  </div>      
-                )
-              }
+                {
+                  error && !isRolling && (
+                    <div className="px-5 md:px-20 absolute -mt-5 top-0 left-0 right-0 text-center">
+                      <div className="bg-red-600 rounded-tl-lg rounded-tr-lg py-1 uppercase text-xs font-bold">
+                        {error}
+                      </div>
+                    </div>      
+                  )
+                }
+              </form>
             </div>
 
             <div className="-mt-10 w-full text-cr-blue">
@@ -208,55 +210,50 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="w-4/5 bg-cr-blue p-5 rounded-bl-lg rounded-br-lg">
-              <div className="mb-4">
-                <h2 className="mb-1 font-bold text-cr-yellow inline-block">
-                  How to roll dice
-                </h2>
+            <div className="w-full px-5 md:px-20 ">
+              <div className="bg-cr-blue p-5 rounded-bl-lg rounded-br-lg md:flex md:space-x-20">
+                <div className="mb-4">
+                  <h2 className="text-sm md:text-base mb-1 font-bold text-cr-yellow inline-block">
+                    How to roll dice
+                  </h2>
 
-                <p className="text-sm">
-                  Rolling dice with a formula is very similar to how you would describe a roll in english.
-                </p>
+                  <p className="text-xs md:text-sm">
+                    Type a formula just like how you would describe a it in english.
+                  </p>
+                  
+                  <p className="text-xs md:text-sm">
+                    Eg. <span className="hover:cursor-pointer hover:opacity-75 border-b border-cr-yellow border-dashed text-cr-yellow" onClick={() => rollDice('1d20')}>1d20</span>
+                  </p>
+                </div>
 
-                <p className="text-sm">
-                  For example, if you want to roll <span className="font-bold">"two D6s"</span>, you'd type: <span className="hover:cursor-pointer hover:opacity-75 border-b border-cr-yellow border-dashed text-cr-yellow" onClick={() => rollDice('2d6')}>2d6</span> 
-                </p>
-                
-                <p className="text-sm">
-                  Eg. <span className="hover:cursor-pointer hover:opacity-75 border-b border-cr-yellow border-dashed text-cr-yellow" onClick={() => rollDice('1d20')}>1d20</span>
-                </p>
+                <div className="mb-4">
+                  <h2 className="text-sm md:text-base mb-1 font-bold text-cr-yellow inline-block">
+                    Rolling multiple types of die
+                  </h2>
+
+                  <p className="text-xs md:text-sm">
+                    You can roll multiple dice at once by separating individual rolls with a <span className="font-bold">+</span> and spaces.
+                  </p>
+                  
+                  <p className="text-xs md:text-sm">
+                    Eg. <span className="hover:cursor-pointer hover:opacity-75 border-b border-cr-yellow border-dashed text-cr-yellow" onClick={() => rollDice('2d6 + 1d8')}>2d6 + 1d8</span>
+                  </p>
+                </div>
+
+                <div>
+                  <h2 className="text-sm md:text-base mb-1 font-bold text-cr-yellow inline-block">
+                    Adding modifiers
+                  </h2>
+
+                  <p className="text-xs md:text-sm">
+                    You can add modifiers to your rolls with a <span className="font-bold">+</span> and no spaces.
+                  </p>
+                  
+                  <p className="text-xs md:text-sm">
+                    Eg. <span className="hover:cursor-pointer hover:opacity-75 border-b border-cr-yellow border-dashed text-cr-yellow" onClick={() => rollDice('1d20+4')}>1d20+4</span>
+                  </p>
+                </div>
               </div>
-
-              <div className="mb-4">
-                <h2 className="mb-1 font-bold text-cr-yellow inline-block">
-                  Rolling multiple types of die
-                </h2>
-
-                <p className="text-sm">
-                  You can roll multiple dice at once by separating individual rolls with a <span className="font-bold">+</span> and spaces.
-                </p>
-                
-                <p className="text-sm">
-                  Eg. <span className="hover:cursor-pointer hover:opacity-75 border-b border-cr-yellow border-dashed text-cr-yellow" onClick={() => rollDice('2d6 + 1d8')}>2d6 + 1d8</span>
-                </p>
-              </div>
-
-              <div>
-                <h2 className="mb-1 font-bold text-cr-yellow inline-block">
-                  Adding modifiers
-                </h2>
-
-                <p className="text-sm">
-                  You can add modifiers to your rolls with a <span className="font-bold">+</span> and no spaces.
-                </p>
-                
-                <p className="text-sm">
-                  Eg. <span className="hover:cursor-pointer hover:opacity-75 border-b border-cr-yellow border-dashed text-cr-yellow" onClick={() => rollDice('1d20+4')}>1d20+4</span>
-                </p>
-              </div>
-              <p className="text-sm">
-                
-              </p>
             </div>
           </div>
         </section>
