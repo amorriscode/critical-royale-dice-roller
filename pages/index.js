@@ -86,7 +86,7 @@ export default function Home() {
 
       <main className="flex flex-col justify-center items-center">
           <a
-            className="w-full z-20 sticky -mt-5 md:-mt-10 mb-4 rounded-bl-lg rounded-br-lg hover:bg-cr-blue hover:text-white top-0 bg-cr-yellow text-cr-blue text-center font-bold py-1"
+            className="w-full z-40 sticky -mt-5 md:-mt-10 mb-4 rounded-bl-lg rounded-br-lg hover:bg-cr-blue hover:text-white top-0 bg-cr-yellow text-cr-blue text-center font-bold py-1"
             href="https://criticalroyale.com"
             target="_blank"
             rel="noopener noreferrer"
@@ -96,12 +96,12 @@ export default function Home() {
 
         <img src="/logo-white-yellow-icon.svg" alt="Critical Royale Logo Icon" className="w-56" />
 
-        <h1 className="text-4xl sm:text-5xl font-serif">
+        <h1 className="text-3xl mb-2 sm:text-5xl font-serif text-center">
           Choose your weapon!
         </h1>
 
-        <div className="bg-cr-yellow text-cr-blue text-xs font-semibold px-3 py-1 rounded-full">
-          Click to roll a die or enter a formula into the formula input
+        <div className="bg-cr-yellow text-cr-blue text-xs font-semibold px-3 py-1 rounded-full text-center">
+          Click a die or enter a formula to get your roll on
         </div>
 
         <section className=" w-full">
@@ -212,7 +212,7 @@ export default function Home() {
                       </>
                     )
                     : (
-                      <div className="text-5xl text-gray-400">
+                      <div className="text-2xl sm:text-5xl text-gray-400 text-center">
                         Only the dice can decide your fate!
                       </div>
                     )
