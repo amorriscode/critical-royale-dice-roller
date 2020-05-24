@@ -25,11 +25,6 @@ class CriticalRoyaleApp extends App {
               },
             ],
           }}
-          twitter={{
-            handle: '@criticalroyale',
-            site: '@criticalroyale',
-            cardType: 'summary_large_image',
-          }}
         />
 
         <Component {...pageProps} />
