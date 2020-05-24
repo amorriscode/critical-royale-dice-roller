@@ -85,6 +85,12 @@ export default function Home() {
       </Head>
 
       <main className="flex flex-col justify-center items-center">
+        <div className="w-full z-20 sticky -mt-5 md:-mt-10 mb-4 rounded-bl-lg rounded-br-lg top-0 bg-cr-yellow text-cr-blue text-center font-bold py-1">
+          <a href="https://criticalroyale.com" target="_blank" rel="noopener noreferrer">
+            Looks like you need some real dice! <span className="underline">Get 10% off with the code LETSROLL10 at CriticalRoyale.com</span>
+          </a>
+        </div>
+
         <img src="/logo-white-yellow-icon.svg" alt="Critical Royale Logo Icon" className="w-56" />
 
         <h1 className="text-4xl sm:text-5xl font-serif">
