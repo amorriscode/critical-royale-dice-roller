@@ -1,8 +1,18 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/zeit/next.js/tree/canary/packages/create-next-app).
+# Critical Royale's Wonderfully Fantastic Virtual Dice Roller
+
+This project is an online dice roller for Dungeons & Dragons or any tabletop roleplaying game you enjoy.
 
 ## Getting Started
 
-First, run the development server:
+Install those sweet dependencies:
+
+```bash
+npm i
+# or
+yarn
+```
+
+Then run the dev server:
 
 ```bash
 npm run dev
@@ -10,21 +20,10 @@ npm run dev
 yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## True Randomness
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+> Most random numbers used in computer programs are pseudo-random, which means they are generated in a predictable fashion using a mathematical formula.
 
-## Learn More
+This wouldn't work well for dice now would it? To combat this, this project uses [RANDOM.ORG](https://www.random.org/) which uses _atmospheric noise_ for true randomness. Pretty cool, right? You'll need an API key from them to use in development.
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/zeit/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+For fun, you can [learn more about randomness and random numbers](https://www.random.org/randomness).
