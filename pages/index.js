@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import RandomOrg from 'random-org';
 
 import Head from 'next/head';
 
@@ -10,16 +9,15 @@ import D10 from '../public/dice/d10.svg';
 import D12 from '../public/dice/d12.svg';
 import D20 from '../public/dice/d20.svg';
 
-const random = new RandomOrg({ apiKey: 'f66247d8-f433-41af-a862-68189f6a60d5' });
-
 const rollDie = async (value, count = 1) => {
-  const { random: randomResult } = await random.generateIntegers({
-    min: 1,
-    max: value,
-    n: count,
+  const result = await fetch('/api/roll', {
+    method: 'POST',
+    body: JSON.stringify({ value, count }),
   });
 
-  return randomResult.data.reduce((acc, curr) => acc + curr, 0);
+  const { roll } = await result.json();
+  
+  return roll;
 }
 
 const validRoll = new RegExp(/(\d+d\d+(\+\d+)?)/g);
