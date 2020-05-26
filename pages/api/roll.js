@@ -1,6 +1,5 @@
 import RandomOrg from 'random-org';
 
-console.log(process.env.RANDOM_ORG_API_KEY);
 const random = new RandomOrg({ apiKey: process.env.RANDOM_ORG_API_KEY });
 
 const rollDie = async (value, count = 1) => {
